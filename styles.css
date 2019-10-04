@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css?family=Big+Shoulders+Display:400,700&display=swap");
+:root {
+  --light-shades: #fefefe;
+  --light-accent: #eed1ce;
+  --main-brand: #f2c52c;
+  --dark-accent: #6d9abd;
+  --dark-shades: #9c4b9d;
+}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0 auto;
+  width: 75%;
+  background: #9c4b9d;
+  font-family: "Big Shoulders Display", cursive;
+  color: var(--light-shades);
+  padding-top: 2rem;
+}
+.page-title {
+  font-weight: normal;
+  text-align: center;
+  font-size: 6rem;
+  margin: 0;
+}
+.game-container {
+  margin: 1rem auto;
+}
+.game-info-container {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.game-info {
+  font-size: 2rem;
+  margin: 0;
+  text-align: center;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-around;
+  margin: 1rem;
+}
+.card {
+  width: 9rem;
+  height: 9rem;
+  perspective: 1000px;
+  margin: 1rem auto;
+}
+.clicked .card-front {
+  transform: rotateY(0);
+  /* transition: transform 500ms; */
+}
+.clicked .card-back {
+  transform: rotateY(-180deg);
+  /* transition: transform 500ms; */
+}
+.matched .card-front {
+  transform: rotateY(0);
+}
+.matched .card-back {
+  transform: rotateY(180deg);
+}
+.card-back {
+  background: var(--dark-accent);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: transform 500ms;
+  backface-visibility: hidden;
+  box-shadow: 0 0 5px #333;
+}
+.card-front {
+  background: var(--dark-accent);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: transform 500ms;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  box-shadow: 0 0 5px #333;
+}
+button {
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background: var(--main-brand);
+  color: var(--light-shades);
+  border: 2px solid var(--main-brand);
+  text-shadow: 0 0 5px black;
+  outline: none;
+  margin: 1rem 40%;
+}
+button:hover {
+  background: var(--light-shades);
+  border: 2px solid var(--main-brand);
+  color: var(--main-brand);
+  text-shadow: none;
+  box-shadow: none;
+}
+#overlayText {
+  margin: 0 auto;
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+#overlayText.visible {
+  display: flex;
+  animation: overlay-grow 500ms forwards;
+}
+@keyframes overlay-grow {
+  from {
+    background: rgba(0, 0, 0, 0);
+    font-size: 0;
+  }
+  to {
+    background: rgba(0, 0, 0, 0.75);
+    font-size: 10rem;
+  }
+}
