@@ -30,6 +30,7 @@ body {
 }
 .game-container {
   margin: 1rem auto;
+  max-width:675px;
 }
 .game-info-container {
   margin: 0;
